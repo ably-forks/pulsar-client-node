@@ -8,14 +8,14 @@
     "example": "examples"
   },
   "scripts": {
-    "install": "npm install node-pre-gyp && ./node_modules/node-pre-gyp/bin/node-pre-gyp install --fallback-to-build",
-    "clean": "./node_modules/node-gyp/bin/node-gyp.js clean",
-    "configure": "./node_modules/node-gyp/bin/node-gyp.js configure",
+    "install": "node-pre-gyp install --fallback-to-build",
+    "clean": "node-gyp clean",
+    "configure": "node-gyp configure",
     "lint": "clang-format-lint src/*.cc src/*.h && eslint --ext .js .",
     "format": "clang-format-lint --fix src/*.cc src/*.h && eslint --fix --ext .js .",
-    "build": "npm run format && ./node_modules/node-gyp/bin/node-gyp.js rebuild",
-    "build:debug": "npm run format && ./node_modules/node-gyp/bin/node-gyp.js rebuild --debug",
-    "license:report": "mkdir -p report && ./node_modules/grunt/bin/grunt grunt-license-report",
+    "build": "npm run format && node-gyp rebuild",
+    "build:debug": "npm run format && node-gyp rebuild --debug",
+    "license:report": "mkdir -p report && grunt grunt-license-report",
     "license:addheader": "license-check-and-add",
     "test": "jest --verbose"
   },
